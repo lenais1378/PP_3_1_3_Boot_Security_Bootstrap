@@ -5,9 +5,13 @@
     <title>User</title>
 </head>
 <body>
+
 <p th:text="${user.getId()}">VALUE</p>
+<p th:text="${user.getName()}">VALUE</p>
+<p th:text="${user.getLastName()}">VALUE</p>
 <p th:text="${user.getUsername()}">VALUE</p>
 <p th:text="${user.getPassword()}">VALUE</p>
+<p th:text="${user.getEmail()}">VALUE</p>
 <a th:href="@{/}">Go to the main page</a>
 <a th:href="@{/logout}">Logout here</a>
 </body>

@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 @Controller
+@RequestMapping(value = "/admin")
 public class AdminController {
     private final UserService userService;
 
@@ -22,14 +23,14 @@ public class AdminController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "/admin")
+    @GetMapping()
     public String listUsers(ModelMap model) {
         model.addAttribute("usersList", userService.allUsers());
         model.addAttribute("user", new User());
         return "admin";
     }
 
-    @PostMapping(value = "/admin")
+    @PostMapping()
     public String addUser(@ModelAttribute("user") User user, Model model) {
         List<Role> roles = userService.listRoles();
         model.addAttribute("roles", roles);
@@ -37,25 +38,26 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @GetMapping("/admin/{id}")
+    @GetMapping("/{id}")
     public String showUser(@PathVariable("id") long id, Model model) {
         model.addAttribute("user", userService.findUserById(id));
         return "useradmin";
     }
 
-    @GetMapping("/admin/update")
+    @GetMapping("/update")
     public String updateUser(@ModelAttribute("user") User user, Model model) {
         List<Role> roles = userService.listRoles();
         model.addAttribute("roles", roles);
         return "useradmin";
     }
-    @PostMapping("/user-update/{id}")
+
+    @PostMapping("/update/{id}")
     public String updateUser(Long id, @ModelAttribute("user") User user) {
         userService.updateUser(user);
         return "redirect:/admin";
     }
 
-    @RequestMapping("/admin/delete/{id}")
+    @RequestMapping("/delete/{id}")
     public String removeUser(@PathVariable("id") long id) {
         userService.deleteUser(id);
         return "redirect:/admin";

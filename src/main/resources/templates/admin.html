@@ -12,33 +12,29 @@
 </div>
 <h3>Add a new user</h3>
 
-    <form th:method="POST" th:action="@{/admin}" th:object="${user}">
-        <input type="hidden" th:field="*{id}" id="id"/>
-        <label for="name">Enter name</label>
-        <input type="text" th:field="*{name}" id="name"/>
-        <br/>
-        <label for="lastname">Enter lastname</label>
-        <input type="text" th:field="*{lastName}" id="lastname"/>
-        <br/>
-        <label for="username"> Enter the username </label>
-        <input type="text" th:field="*{username}" id="username"/>
-        <br/>
-        <label for="password">Enter password</label>
-        <input type="text" th:field="*{password}" id="password"/>
-        <br/>
-        <label for="email">Enter email</label>
-        <input type="text" th:field="*{email}" id="email"/>
-        <br/>
-        <div th:each="role:${roles}">
-            <input th:type="checkbox"
-                   th:name="roles"
-                   th:value="${role}"
-<!--                   th:checked="${#lists.contains(user.getRoles(), role)}">-->
-            <label th:text="${role}"></label>
-        </div>
+<form th:method="POST" th:action="@{/admin}" th:object="${user}">
+    <input type="hidden" th:field="*{id}" id="id"/>
+    <label for="name">Enter name</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <label for="lastname">Enter lastname</label>
+    <input type="text" th:field="*{lastName}" id="lastname"/>
+    <br/>
+    <label for="username"> Enter the username </label>
+    <input type="text" th:field="*{username}" id="username"/>
+    <br/>
+    <label for="password">Enter password</label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <br/>
+    <label for="email">Enter email</label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <br/>
+    <label for="roles">Choose role (1 – ADMIN, 2 – USER) </label>
+    <input type="text" th:field="*{roles}" id="roles">
+    <br/>
 
-        <input type="submit" value="Add user"/>
-    </form>
+    <input type="submit" value="Add user"/>
+</form>
 
 <a th:href="@{/logout}">Logout here</a>
 </body>
