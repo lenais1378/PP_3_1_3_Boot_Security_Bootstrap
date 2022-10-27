@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+  <meta charset="UTF-8">
+  <title>User</title>
+</head>
+<body>
+<h3>User details</h3>
+<p th:text="${user.getId()}">VALUE</p>
+<p th:text="${user.getUsername()}">VALUE</p>
+<p th:text="${user.getPassword()}">VALUE</p>
+<p th:text="${user.getName()}">VALUE</p>
+<p th:text="${user.getLastName()}">VALUE</p>
+<p th:text="${user.getEmail()}">VALUE</p>
+<h3> User roles</h3>
+<div th:each="role:${user.getRoles()}">
+  <input th:type="checkbox"
+         th:name="roles"
+         th:value="${role}"
+         th:checked="${#lists.contains(role.getName(), role)}">
+  <label th:text="${role}"></label>
+</div>
+<div th:each="role : ${user.getRoles()}">
+  <p th:text="${role.getName()}">VALUE</p>
+</div>
+<a th:href="@{/}">Go to the main page</a>
+<div>
+  <form th:method="POST" th:action="@{/admin/update}" th:object="${user}">
+    <input type="hidden" th:field="*{roles}" id="roles">
+    <input type="hidden" th:field="*{id}" id="id"/>
+    <label for="name">Enter the name</label>
+    <input type="text" th:field="*{username}" id="name"/>
+    <br/>
+    <label for="password">Enter the password</label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <br/>
+    <input type="submit" value="Update user"/>
+  </form>
+</div>
+<div>
+  <form th:method="POST" th:action="@{/admin/delete/{id}(id=${user.getId()})}" th:object="${user}">
+    <input type="submit" value="Remove this user"/>
+  </form>
+</div>
+<a th:href="@{/admin}">Go to the admin page</a>
+</body>
+</html>

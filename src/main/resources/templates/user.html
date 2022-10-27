@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<p th:text="${user.getId()}">VALUE</p>
+<p th:text="${user.getUsername()}">VALUE</p>
+<p th:text="${user.getPassword()}">VALUE</p>
+<a th:href="@{/}">Go to the main page</a>
+<a th:href="@{/logout}">Logout here</a>
+</body>
+</html>
