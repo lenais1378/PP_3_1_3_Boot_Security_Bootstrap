@@ -2,13 +2,17 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
     <title>User</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
 </head>
 <body>
 <h3>User details</h3>
+
 <p th:text="${user.getId()}">VALUE</p>
-<p th:text="${user.getUsername()}">VALUE</p>
+<!--<p th:text="${user.getUsername()}">VALUE</p>-->
 <p th:text="${user.getPassword()}">VALUE</p>
 <p th:text="${user.getName()}">VALUE</p>
 <p th:text="${user.getLastName()}">VALUE</p>
@@ -18,30 +22,32 @@
     <p th:text="${role.getName()}">VALUE</p>
 </div>
 <a th:href="@{/}">Go to the main page</a>
-<div>
-    <form th:method="POST" th:action="@{/admin/update/{id}}" th:object="${user}">
-        <label for="roles">Choose role (1 – ADMIN, 2 – USER) </label>
-        <input type="text" th:field="*{roles}" id="roles">
-        <br/>
-        <input type="hidden" th:field="*{id}" id="id"/>
-        <label for="name">Enter name</label>
-        <input type="text" th:field="*{name}" id="name"/>
-        <br/>
-        <label for="lastname">Enter lastname</label>
-        <input type="text" th:field="*{lastName}" id="lastname"/>
-        <br/>
-        <label for="username">Enter the username</label>
-        <input type="text" th:field="*{username}" id="username"/>
-        <br/>
-        <label for="password">Enter the password</label>
-        <input type="text" th:field="*{password}" id="password"/>
-        <br/>
-        <label for="email">Enter email</label>
-        <input type="text" th:field="*{email}" id="email"/>
-        <br/>
-        <input type="submit" value="Update user"/>
-    </form>
-</div>
+<!--<div>-->
+<!--    <form th:method="POST" th:action="@{/admin/update/{id}}" th:object="${user}">-->
+<!--        <label for="roles">Choose role (1 – ADMIN, 2 – USER) </label>-->
+<!--        <input type="text" th:field="*{roles}" id="roles">-->
+<!--        <br/>-->
+<!--        <input type="hidden" th:field="*{id}" id="id"/>-->
+<!--        <label for="name">Enter name</label>-->
+<!--        <input type="text" th:field="*{name}" id="name"/>-->
+<!--        <br/>-->
+<!--        <label for="lastname">Enter lastname</label>-->
+<!--        <input type="text" th:field="*{lastName}" id="lastname"/>-->
+<!--        <br/>-->
+<!--&lt;!&ndash;        <label for="username">Enter the username</label>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="text" th:field="*{username}" id="username"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <br/>&ndash;&gt;-->
+<!--        <label for="password">Enter the password</label>-->
+<!--        <input type="text" th:field="*{password}" id="password"/>-->
+<!--        <br/>-->
+<!--        <label for="email">Enter email</label>-->
+<!--        <input type="text" th:field="*{email}" id="email"/>-->
+<!--        <br/>-->
+<!--        <input type="submit" value="Update user"/>-->
+<!--    </form>-->
+<!--</div>-->
+
+
 <div>
     <form th:method="POST" th:action="@{/admin/delete/{id}(id=${user.getId()})}" th:object="${user}">
         <input type="submit" value="Remove this user"/>

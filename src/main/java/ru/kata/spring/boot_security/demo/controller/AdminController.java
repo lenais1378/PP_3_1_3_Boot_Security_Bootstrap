@@ -30,7 +30,7 @@ public class AdminController {
         return "admin";
     }
 
-    @PostMapping()
+    @PostMapping("/add")
     public String addUser(@ModelAttribute("user") User user, Model model) {
         List<Role> roles = userService.listRoles();
         model.addAttribute("roles", roles);
@@ -44,14 +44,14 @@ public class AdminController {
         return "useradmin";
     }
 
-    @GetMapping("/update")
+    @GetMapping("/update/{id}")
     public String updateUser(@ModelAttribute("user") User user, Model model) {
         List<Role> roles = userService.listRoles();
         model.addAttribute("roles", roles);
         return "useradmin";
     }
 
-    @PostMapping("/update/{id}")
+    @PostMapping("/update")
     public String updateUser(Long id, @ModelAttribute("user") User user) {
         userService.updateUser(user);
         return "redirect:/admin";

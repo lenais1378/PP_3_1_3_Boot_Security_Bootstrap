@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <form class="form-signin" method="post" action="/login">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <p>
+            <label for="email" class="sr-only">Email address</label>
+            <input type="email" id="email" name="username" class="form-control" placeholder="Email address" >
+        </p>
+        <p>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" >
+        </p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" >Sign in</button>
+    </form>
+</div>
+<!--<div id="apple-password-autofill-list" style="z-index: 2147483647 !important; padding: 0px !important; margin: 0px !important; border-radius: 8px !important; position: fixed !important; color-scheme: normal !important; box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px, rgba(0, 0, 0, 0.18) 0px 8px 15px 6px !important; border: 1px solid rgba(0, 0, 0, 0.2) !important; overflow: hidden !important; backdrop-filter: blur(20px) !important; background-color: rgba(230, 230, 230, 0.8) !important; top: 143px !important; left: -999999px !important; opacity: 0 !important; visibility: hidden !important;"></div>-->
+</body>
+</html>
